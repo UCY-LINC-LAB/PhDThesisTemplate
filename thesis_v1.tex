@@ -1,0 +1,194 @@
+\documentclass[a4paper,12pt,openright,oneside]{book}
+\usepackage{ucy}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb,epsfig}
+\usepackage{algpseudocode,algorithmicx,algorithm}
+\usepackage{algorithm}
+\usepackage{url}
+%\usepackage{pdfpages}
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0.0pt}
+\makenomenclature
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\INPUT{\item[\algorithmicinput]}
+
+\algnewcommand\algorithmicoutput{\textbf{Output:}}
+\algnewcommand\OUTPUT{\item[\algorithmicoutput]}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Research Goal}
+\newtheorem{acknowledgement}{Acknowledgement}
+
+\committeechair{Marios D. Dikaiakos}
+\majoradviser{George Pallis}
+\associateadviser{Name Surname}
+\associateadviser{Name Surname}
+\associateadviser{Name Surname}
+\associateadviser{Name Surname}
+
+
+\begin{document}
+\onehalfspace
+
+
+\pagenumbering{roman}
+
+\coverpage
+\copyrightpage
+\clearpage
+\approvalpage
+\declarationpage
+\setcounter{page}{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% GREEK ABSTRACT %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{otherlanguage}{greek}	
+\chapter*{Περίληψη}
+Περίληψη....
+
+
+
+
+\end{otherlanguage}
+%%%%% REMOVE IF ABSTRACT USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% ENGLISH ABSTRACT %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract}
+
+Abstract...
+
+
+
+
+%%%%% REMOVE IF ABSTRACT USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% ACKMOWLEDGEMENTS %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Acknowledgments}
+
+Acknowledgments goes here...
+
+%%%%% REMOVE IF ACK USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% CONTRIBUTION OF THE THESIS %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Thesis Contributions}
+This thesis is founded on the knowledge acquired by my involvement in the authorship of the following journal articles and conference papers:
+
+\singlespace
+\subsection*{Journal Articles}
+
+\begin{enumerate}
+	
+	 
+	 \item ...
+	 
+\end{enumerate}
+
+
+\subsection*{Conference and Workshop Proceedings}
+
+\begin{enumerate}[resume]
+	
+	\item ...
+	
+\end{enumerate}
+
+
+
+%%%%% REMOVE IF PUBLICATIONS USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+
+
+\onehalfspace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% TABLE OF CONTENTS %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+%%%%% REMOVE IF CONTENTS USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+\vspace{1in}
+\printnomenclature
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%% LIST OF FIGURES %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\listoffigures
+%%%%% REMOVE IF FIGURES USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% LIST OF TABLES %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\listoftables
+%%%%% REMOVE IF TABLES USES THE 2ND PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+\pagenumbering{arabic}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CHAPTERS START HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\include{chapters/Introduction}
+%%%%% REMOVE IF A CHAPTER FINISHES ON A LEFT PAGE %%%%%
+%\newpage\null\thispagestyle{empty}\newpage
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%% ----------------------------------------------------------- %%%%%%%%%%%%%%%%%%%%
+
+\singlespace
+
+\bibliographystyle{IEEEtran} % to sort references based on first author's surname instead of order of appearance in text.
+
+\bibliography{thesis} %use the full names of the IEEE journals. Here Thesis.bib is assumed 
+
+\appendix
+%\include{appendices/appendixA}
+
+\end{document}
+

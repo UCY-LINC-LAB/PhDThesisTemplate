@@ -1,0 +1,205 @@
+%UCY Regulations: top, down, right 2cm, left 3.5cm (for right-hand side page)
+\usepackage[a4paper,left=3.5cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+%\usepackage[a4paper,twoside,left=2cm,right=3.5cm,top=2cm,bottom=2cm]{geometry} % these margin sizes are mirrored, to follow the ideas in the ``Elements of Typographic Style'' which proposes using a bigger margin in the site of the book which is bounded.
+
+%Load custom fonts and greek hyphenation
+\usepackage{amsmath, amsthm, amssymb} 
+\usepackage{pxfonts}
+\usepackage[greek,english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{multirow}
+\usepackage[font={small,it}]{caption}
+\usepackage{listings}
+\lstset{
+	basicstyle=\scriptsize,
+	frame=single,
+	language=C,
+	float=tp,
+	floatplacement=tbp,
+	keywordstyle=\bfseries,
+	showstringspaces=false,
+	morekeywords={\#pragma, for, omp, depend, num\_threads, parallel, private, schedule, cross, in, out}
+}
+\usepackage{algpseudocode,algorithmicx,algorithm}
+\usepackage{algorithm}
+\usepackage{graphicx}
+
+% Fill in the publication details below
+\newcommand{\authorName}{Author}
+\newcommand{\thesisTitle}{Thesis Title}
+\newcommand{\pubDate}{DAY}
+\newcommand{\pubMonth}{MONTH}
+\newcommand{\pubYear}{YEAR}
+
+%\usepackage{ifxetex}
+%\ifxetex
+%    \usepackage{fontspec,xunicode,xltxtra}
+%    \setmainfont[Mapping=tex-text,Ligatures=Common]{Minion Pro} % font provided by Acrobat Reader
+%    \usepackage{xgreek}  
+%    %switch between greek and english with \setlanguage{american} or \setlanguage{greek} 
+%\fi
+
+%
+\def\prefacename{Preface}%
+\def\refname{References}%
+\def\abstractname{Abstract}%
+\def\bibname{Bibliography}%
+\def\chaptername{Chapter}%
+\def\appendixname{Appendix}%
+\def\contentsname{Contents}%
+\def\listfigurename{List of Figures}%
+\def\listtablename{List of Tables}%
+\def\indexname{Index}%
+\def\figurename{Figure}%
+\def\tablename{Table}%
+\def\partname{Part}%
+\def\enclname{encl}%
+\def\ccname{cc}%
+\def\headtoname{To}%
+\def\pagename{Page}%
+\def\seename{see}%
+\def\alsoname{see also}%
+\def\proofname{Proof}%
+\def\glossaryname{Glossary}%
+\def\listsymbolsname{List of Symbols}%
+
+%
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\usepackage{cite}
+\usepackage{nomencl}
+\usepackage{calc}
+\usepackage{array}
+
+
+\newcommand{\sigline}[1]{\makebox[\widthof{#1~}]{.\dotfill}#1}
+
+\newtheorem{example}{Example}[section]
+\def\abs#1{\mathopen| #1 \mathclose|}    % use instead of $|x|$ 
+\def\norm#1{\mathopen\| #1 \mathclose\|}% use instead of $\|x\|$ 
+\newenvironment{remark}[1][Remark:]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\numberwithin{equation}{chapter} %sets equation numbers <chapter>.<section>.<index>
+\numberwithin{figure}{chapter} %sets equation numbers <chapter>.<section>.<index>
+
+\def\singlespace{\def\baselinestretch{1}
+    \ifx\@currsize\normalsize\@normalsize\else\@currsize\fi}
+\def\onehalfspace{\def\baselinestretch{1.5}
+    \ifx\@currsize\normalsize\@normalsize\else\@currsize\fi}
+\def\doublespace{\def\baselinestretch{2}
+    \ifx\@currsize\normalsize\@normalsize\else\@currsize\fi}
+
+\def\coverpage{%
+    \thispagestyle{empty}%
+    \doublespace
+    \begin{center}
+        \begin{figure}[htbp]
+            \centering
+                \includegraphics[scale=0.90]{images/ucylogo}
+            \label{figucylogo2}
+        \end{figure}
+        {\Large DEPARTMENT OF COMPUTER SCIENCE}\\
+        \vspace*{1.3in}
+        {\expandafter{\bf\Large \thesisTitle}}\\
+        \vspace*{0.5in}
+        {\large \authorName}\\
+        \vspace*{1in}
+        A Dissertation\\Submitted in Partial Fulfillment of the\\Requirements for the Degree of\\Doctor of Philosophy\\at the\\University of Cyprus%\\
+    \end{center}
+    \vspace*{.5in}
+    \begin{center}
+        \vfill
+        \pubMonth, \pubYear%\the\year
+    \end{center}
+    \newpage
+}
+        
+\def\copyrightpage{%
+    \null\vfill
+    \thispagestyle{empty}
+    \begin{center}
+        \copyright~\authorName,~\pubYear\\
+    \end{center}
+    \vfill
+    \newpage
+}
+
+\newskip\advisersep \advisersep 0.2in plus 0.2in
+\newskip\advisersheight \advisersheight 4.5in 
+\newinsert\ucy@advisers \dimen\ucy@advisers \advisersheight
+\def\committeechair#1{
+	\insert\ucy@advisers{\vskip 0.2in plus 0.3in \sigchair{Committee Chair}{#1}}
+}
+\def\majoradviser#1{
+	\insert\ucy@advisers{\vskip\advisersep \sigmajor{Research Supervisor}{#1}}
+}
+\def\associateadviser#1{
+	\insert\ucy@advisers{\vskip\advisersep \sigassoc{Committee Member}{#1}}
+}    
+
+% Macro for major advisor signature.
+\long\def\sigchair#1#2{
+    \hbox to 5.75in{\shortstack{ #1\\[1 em]}
+    \hfil 
+    \shortstack[l]{\vrule width 4.25in height 0.2pt \\ 
+    \hspace*{0.5in} #2}}}
+% Macro for major advisor signature.
+\long\def\sigmajor#1#2{
+    \hbox to 5.75in{\shortstack{ #1\\[1 em]}
+    \hfil 
+    \shortstack[l]{\vrule width 4.25in height 0.2pt \\ 
+    \hspace*{0.5in} #2}}}
+% Macro for associate advisor signatures.
+\long\def\sigassoc#1#2{
+    \hbox to 5.75in{\shortstack{ #1\\[1 em]}
+    \hfil 
+    \shortstack[l]{\vrule width 4.25in height 0.2pt \\ 
+    \hspace*{0.5in} #2}}
+}
+
+\def\approvalpage{%
+    \vspace*{.25in}
+    \begin{center}
+       \begin{flushleft}{\Large\bf VALIDATION PAGE}\end{flushleft}
+       \begin{flushleft}{\bf Doctoral Candidate:} \authorName\end{flushleft}
+       \begin{flushleft}{\bf Doctoral Dissertation Title:} \thesisTitle\end{flushleft}
+        \vspace{.1in}
+    \end{center}
+    \textit{The present Doctoral Dissertation was submitted in partial fulfillment of the requirements for the Degree of Doctor of Philosophy at the Department of Computer Science and was approved on the \textbf{\pubMonth~\pubDate, \pubYear} by the members of the Examination Committee.}\\
+    \begin{flushleft}{\bf Examination Committee:}\end{flushleft}
+    \vbox to\advisersheight{\unvbox\ucy@advisers}
+    %\newpage\null\thispagestyle{empty}\newpage
+    \newpage
+}
+
+\def\declarationpage{%
+	\vspace*{.25in}
+	\begin{center}
+		\begin{flushleft}{\Large\bf DECLARATION OF DOCTORAL CANDIDATE}\end{flushleft}
+		\vspace{.1in}
+	\end{center}
+	\textit{The present Doctoral Dissertation was submitted in partial fulfillment of the requirements for the degree of Doctor of Philosophy of the University of Cyprus. It is a product of original work of my own, unless otherwise mentioned through references, notes, or any other statements.}\\\\
+	\sigline{~[Full Name of Doctoral Candidate]}\\\\
+	\sigline{~~[Signature of Doctoral Candidate]}
+	%\newpage\null\thispagestyle{empty}\newpage
+	\newpage
+}
+
+
+\usepackage[explicit]{titlesec}
+\usepackage{lipsum}
+\usepackage{type1cm}
+\usepackage{xcolor}
+
+\titleformat{\chapter}[display]
+{\normalfont\LARGE\rmfamily}
+{\sffamily\flushright\fontsize{60}{60}\textbf{\textcolor{black!30}{{\Huge\chaptername}~\thechapter\vskip0pt\rule{\textwidth}{3pt}}}}{0pt}
+{\flushleft\fontsize{30}{0}{#1}\vskip10pt}
+\titlespacing*{\chapter}
+{0pt}{-40pt}{0pt}
+
+%\titleformat{\section}{\normalfont}{\thesection}{1em}{\thesection #1}
+
